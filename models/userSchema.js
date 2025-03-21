@@ -15,7 +15,7 @@ UserSchema.pre('save', async function (next) {
 });
 
 UserSchema.methods.generateAuthToken = function () {
-    return jwt.sign({ _id: this._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    return jwt.sign({ _id: this._id }, process.env.JWT_SECRET, { expiresIn: '24h' });
 };
 
 module.exports = mongoose.model('User', UserSchema);
